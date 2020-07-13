@@ -1,5 +1,5 @@
 # pylint: disable=line-too-long
-"""Entry point for discord flask app."""
+"""Entry point for flask app."""
 import os
 from flask import Flask, Response
 from src.app.init_logger import InitLogger
