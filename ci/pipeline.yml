@@ -1,0 +1,54 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+    branches: 
+      include:
+        - master
+        - refs/tags/v*
+  
+  pool:
+    vmImage: 'ubuntu-latest'
+  
+  steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '3.8'
+  
+  - script: python -m pip install --upgrade pip
+    displayName: 'Install tools'
+  
+  - script: pip install -r requirements.txt
+    workingDirectory: src/app
+    displayName: 'Install requirements'
+  
+  - script: pylint src --ignore=tests
+    displayName: 'Run linter'
+  
+  - script: pytest
+    workingDirectory: src
+    displayName: 'Run tests'
+  
+  - script: py.test --cov-report xml:coverage.xml --cov .
+    workingDirectory: src
+    displayName: 'Generate coverage report'
+  
+  - task: Docker@1
+    displayName: Container registry login
+    inputs:
+      containerregistrytype: Container Registry
+      dockerRegistryEndpoint: DockerHub
+      command: login
+    condition: and(succeeded(), or(eq(variables['Build.SourceBranch'], 'refs/heads/master'),contains(variables['Build.SourceBranch'], 'refs/tags/v')))
+  
+  - script: docker build -t roymoran/quick-flask -f ci/flask.Dockerfile .
+    displayName: 'build app image'
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))  
+      
+  - script: docker push roymoran/quick-flask
+    displayName: 'push docker image'
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  
+  
