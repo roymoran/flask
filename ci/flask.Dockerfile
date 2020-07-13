@@ -1,10 +1,5 @@
 FROM tiangolo/uwsgi-nginx:python3.8
 
-# Download and install root cert from crt.sh
-RUN apt-get update && apt-get install -y ca-certificates
-RUN curl "https://crt.sh/?d=2835394" > /usr/local/share/ca-certificates/rcert.crt
-RUN chmod 644 /usr/local/share/ca-certificates/rcert.crt && update-ca-certificates
-
 COPY ./ /app
 COPY ./src/app/uwsgi.ini /app
 
