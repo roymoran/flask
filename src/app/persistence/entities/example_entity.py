@@ -1,12 +1,12 @@
 # pylint: disable=too-few-public-methods
-"""Module defines objects which maps to workspaces table"""
+"""Module defines objects which maps to example_table table"""
 from datetime import datetime
 from sqlalchemy import Column, Integer, String, DateTime
 from src.app.persistence.db_config import Base
 
 class ExampleEntity(Base):
-    """Class defines objects which maps to workspaces table"""
-    __tablename__ = 'workspaces'
+    """Class defines objects which maps to example_table table"""
+    __tablename__ = 'example_table'
 
     id = Column(Integer, primary_key=True)
     name = Column(String(255))

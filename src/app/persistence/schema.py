@@ -1,5 +1,7 @@
-"""Module allows to run operations on database"""
+"""Module allows to run operations on database, 
+import all entities before running schema.py module"""
 from src.app.persistence.db_config import Base
+from src.app.persistence.entities.example_entity import ExampleEntity
 
 class Schema:
     """Class for running operations on database"""
