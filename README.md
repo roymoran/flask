@@ -6,6 +6,7 @@ Bare minimum production ready flask app built on docker image, uwsgi configurati
 - SQLAlchemy v1.3.18
 - Pylint v2.5.3
 - Pytest v5.4.3
+- mysqlclient v2.0.1
 - And their dependencies
 
 ## Build and Run
