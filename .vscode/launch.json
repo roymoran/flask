@@ -5,11 +5,19 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name":"Python: Flask",
+            "type":"python","request":
+            "launch","module":"flask",
+            "env":{"FLASK_APP":"app.py","FLASK_ENV":"development","FLASK_DEBUG":"0", "DB_CONNECTION_STRING": "mysql+mysqldb://root:password@localhost:3306/example_db?ssl=true", "APP_ENV": "development"},
+            "args":["run","--no-debugger","--no-reload"],
+            "jinja":true
+        },
+        {
             "name": "Python: Module schema.py",
             "type": "python",
             "request": "launch",
             "module": "src.app.persistence.schema",
-            "env": {"DB_CONNECTION_STRING": "mysql+mysqldb://root:rm20Cps40474609@localhost:3306/profiling_reports?ssl=true"}
+            "env": {"DB_CONNECTION_STRING": "mysql+mysqldb://root:password@localhost:3306/example_db?ssl=true"}
         }
     ]
 }
