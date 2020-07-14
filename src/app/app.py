@@ -13,3 +13,10 @@ app = Flask(__name__)
 def root():
     """root index"""
     return Response(status="200")
+
+@app.route("/info", methods=["GET"])
+def info():
+    """app info"""
+    return {
+        'version': 'v0.0.1',
+    }
