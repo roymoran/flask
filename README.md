@@ -7,6 +7,7 @@ Bare minimum production ready flask app built on docker image, uwsgi configurati
 - Pylint v2.5.3
 - Pytest v5.4.3
 - mysqlclient v2.0.1
+- pytest-cov v2.10.0
 - And their dependencies
 
 ## Build and Run
