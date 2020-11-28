@@ -4,7 +4,7 @@ import logging
 
 class InitLogger:
     """InitLogger defines singleton for setting/retrieving global logger
-       
+
        usage:
        # Initial initialization on startup
        InitLogger.instance(slack, development)
