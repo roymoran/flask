@@ -16,7 +16,7 @@ Bare minimum production ready flask app built on docker image, uwsgi configurati
 $ docker build -t quick-flask -f ci/flask.Dockerfile .
 
 # run container (provide your environment variables)
-$ docker run -d --name quick-flask -p 5000:80 -e DB_CONNECTION_STRING="mysql+mysqldb://username:password@host:3306/pub_workspaces?ssl=true" -e APP_ENV="development" -e FLASK_ENV=development quick-flask
+$ docker run -d --name quick-flask -p 5000:80 -e DB_CONNECTION_STRING="mysql+mysqldb://username:password@host:3306/pub_workspaces?ssl=true" -e APP_ENV="development" -e FLASK_ENV="development" quick-flask
 
 # Confirm running by visitng
 $ open http://localhost:5000
