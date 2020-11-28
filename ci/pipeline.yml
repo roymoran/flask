@@ -4,15 +4,15 @@
 # https://aka.ms/yaml
 
 trigger:
-    branches: 
-      include:
-        - master
-        - refs/tags/v*
+  branches: 
+    include:
+      - master
+      - refs/tags/v*
   
-  pool:
-    vmImage: 'ubuntu-latest'
+pool:
+  vmImage: 'ubuntu-latest'
   
-  steps:
+steps:
   - task: UsePythonVersion@0
     inputs:
       versionSpec: '3.8'
