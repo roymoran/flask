@@ -28,4 +28,5 @@ $ docker rm -f flask-app
 ## Deploy
 
 ## References 
+- [Flask Docs](https://flask.palletsprojects.com/en/1.1.x/)
 - [MySQL SQLAlchemy Docs](https://docs.sqlalchemy.org/en/13/dialects/mysql.html)
