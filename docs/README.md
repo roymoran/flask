@@ -42,5 +42,3 @@ TODO: Add deployment notes
 [More info on virtual environments and packages](https://docs.python.org/3.8/tutorial/venv.html)
 
 [Flask docs](https://flask.palletsprojects.com/en/1.1.x/)
-
-[MySQL SQLAlchemy Docs](https://docs.sqlalchemy.org/en/13/dialects/mysql.html)
