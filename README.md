@@ -4,7 +4,7 @@ Bare minimum production ready flask app built on docker image, uwsgi configurati
 - alembic v1.4.3
 - autopep8 v1.5.4
 - Flask v1.1.2
-- SQLAlchemy v1.3.18
+- SQLAlchemy v1.3.22
 - Pylint v2.5.3
 - Pytest v5.4.3
 - mysqlclient v2.0.1
