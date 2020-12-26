@@ -10,7 +10,7 @@ This flask app uses SQLAlchemy to manage access to the database tables and its r
 
 Each database table corresponds to a `*_entity.py` class in [entities directory](./entities). To add, remove, or modify a table you can create, delete, or update the corresponding `*_entity.py` file. Once you've made changes to these files you must use alembic commmands to generate migration files. These files are used to make changes to the database schema. Please review alembic migration for an in depth explanation of what the commands do, below are only commands to generate a new migration and upgrade the db schema.
 
-For the --autogenerate flag to work, each individual entity must be imported into [env.py](./env.py). Otherwise an empty migration is generated and you must fill in the details.
+For the --autogenerate flag to work, each individual entity must be imported into [env.py](./migrations/env.py). Otherwise an empty migration is generated and you must fill in the details.
 ## Migration Commands
 
 ```bash
