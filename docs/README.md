@@ -30,7 +30,7 @@ $ docker rm -f flask-app
 
 ## Managing MySQL Database Schema
 
-This template project can be run and deployed without connecting it to a MySQL instance. If you won't be persisting data just ignore this part and don't worry about setting `DB_CONNECTION_STRING`. If you will connect the application to a MySQL instance notes can be found under the persistence directory [README.md](../src/app/persistance/README.md).
+This template project can be run and deployed without connecting it to a MySQL instance. If you won't be persisting data just ignore this part and don't worry about setting `DB_CONNECTION_STRING`. If you will connect the application to a MySQL instance notes can be found under the persistence directory [README.md](../src/app/persistence/README.md).
 
 ## Deploy
 
