@@ -9,5 +9,5 @@ Bare minimum production ready flask app built on docker image, uwsgi configurati
 - mysqlclient v2.0.1
 - pytest-cov v2.10.0
 - And their dependencies
-# Docs
+## Docs
 Reference docs [readme](./docs/README.md)
