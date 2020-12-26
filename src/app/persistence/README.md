@@ -6,9 +6,10 @@ Ensure the db connection string is set and accessible via `os.environ['DB_CONNEC
 
 ```bash
 # from repo root
+# set DB_CONNECTION_STRING
+$ export DB_CONNECTION_STRING=mysql+mysqldb://root:password@localhost:3306/example_db?ssl=true
 # create new migration
 $ python3 -m alembic.config -c src/app/persistence/migrations/alembic.ini revision --autogenerate -m "comment for revision"
-
 # update database
 $ python3 -m alembic.config -c src/persistence/migrations/alembic.ini upgrade head
 

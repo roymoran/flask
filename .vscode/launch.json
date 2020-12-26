@@ -5,20 +5,48 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name":"Python: Flask",
-            "type":"python",
-            "request":"launch",
-            "module":"flask",
-            "env":{"FLASK_APP":"src/app/app.py","FLASK_ENV":"development","FLASK_DEBUG":"0", "DB_CONNECTION_STRING": "mysql+mysqldb://root:password@localhost:3306/example_db?ssl=true", "APP_ENV": "development"},
-            "args":["run","--no-debugger","--no-reload"],
-            "jinja":true
-        },
-        {
-            "name": "Python: Module schema.py",
+            "name": "Python: Flask",
             "type": "python",
             "request": "launch",
-            "module": "src.app.persistence.schema",
-            "env": {"DB_CONNECTION_STRING": "mysql+mysqldb://root:password@localhost:3306/example_db?ssl=true"}
+            "module": "flask",
+            "env": {
+                "FLASK_APP": "src/app/app.py",
+                "FLASK_ENV": "development",
+                "FLASK_DEBUG": "0",
+                "DB_CONNECTION_STRING": "mysql+mysqldb://root:password@localhost:3306/example_db?ssl=true",
+                "APP_ENV": "development"
+            },
+            "args": [
+                "run",
+                "--no-debugger",
+                "--no-reload"
+            ],
+            "jinja": true
+        },
+        {
+            "name": "Python: Generate Alembic Revision",
+            "type": "python",
+            "request": "launch",
+            "module": "alembic.config",
+            "env": {
+                "DB_CONNECTION_STRING": "mysql+mysqldb://root:password@localhost:3306/example_db?ssl=true"
+            },
+            "args": [
+                "--config",
+                "src/app/persistence/migrations/alembic.ini",
+                "revision",
+                "--autogenerate",
+                "-m",
+                "${input:revisionComment}"
+            ],
+        }
+    ],
+    "inputs": [
+        {
+            "id": "revisionComment",
+            "description": "Add a comment for this revision",
+            "type": "promptString",
+            "default": ""
         }
     ]
 }
