@@ -38,6 +38,9 @@ TODO: Add deployment notes
 
 ## Additional Resources
 [Creating a virtual environment (flask)](https://flask.palletsprojects.com/en/1.1.x/installation/#create-an-environment)
+
 [More info on virtual environments and packages](https://docs.python.org/3.8/tutorial/venv.html)
+
 [Flask docs](https://flask.palletsprojects.com/en/1.1.x/)
+
 [MySQL SQLAlchemy Docs](https://docs.sqlalchemy.org/en/13/dialects/mysql.html)
