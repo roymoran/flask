@@ -5,6 +5,7 @@ from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 
 from alembic import context
+from src.app.persistence.entities.example_entity import ExampleEntity
 from src.app.persistence.db_config import Base
 
 # this is the Alembic Config object, which provides

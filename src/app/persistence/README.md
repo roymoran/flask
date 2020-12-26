@@ -8,15 +8,17 @@ $ export DB_CONNECTION_STRING=mysql+mysqldb://root:password@localhost:3306/examp
 
 This flask app uses SQLAlchemy to manage access to the database tables and its records with the sqlalchemy orm. It also uses alembic to generate and version the database schema. The app is setup with an `example_entity.py` to display the usage of programmatically setting up a database table and its columns so the file should be deleted. More usage info can be found in the [object relational tutorial](https://docs.sqlalchemy.org/en/13/orm/tutorial.html) on SQLAlchemy documentation.
 
-Each database table corresponds to a `*_entity.py` class in [entities directory](./entities). To add, remove, or modify a table you can create, delete, or update the corresponding `*_entity.py` file. Once you've made changes to these files you must use alembic commmands to generate migration files. These files are used to make changes to the database schema. Please review alembic migration for an in depth explanation of what the commands do, below are only
+Each database table corresponds to a `*_entity.py` class in [entities directory](./entities). To add, remove, or modify a table you can create, delete, or update the corresponding `*_entity.py` file. Once you've made changes to these files you must use alembic commmands to generate migration files. These files are used to make changes to the database schema. Please review alembic migration for an in depth explanation of what the commands do, below are only commands to generate a new migration and upgrade the db schema.
+
+For the --autogenerate flag to work, each individual entity must be imported into [env.py](./env.py). Otherwise an empty migration is generated and you must fill in the details.
 ## Migration Commands
 
 ```bash
 # from repo root
 # create new migration
-$ python3 -m alembic.config -c src/app/persistence/migrations/alembic.ini revision --autogenerate -m "comment for revision"
+$ python3 -m alembic.config -c src/app/persistence/migrations/alembic.ini revision --autogenerate -m "delete me"
 # update database
-$ python3 -m alembic.config -c src/persistence/migrations/alembic.ini upgrade head
+$ python3 -m alembic.config -c src/app/persistence/migrations/alembic.ini upgrade head
 
 ```
 
