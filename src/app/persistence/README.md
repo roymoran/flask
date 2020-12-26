@@ -1,13 +1,18 @@
 # Persistence
-Database tables correspond to a `*_entity.py` class in [entities directory](./entities). To add, remove, or modify a table you can create, delete, or update the corresponding `*_entity.py` file. Database versioning is managed with alembic. I only included 2 key migration commands for modifying the db schema. Please review alembic migration for an in depth explanation of what the commands do.
+Before following these notes - make sure you have access to an up and running [MySQL server](https://dev.mysql.com/).
 
-Ensure the db connection string is set and accessible via `os.environ['DB_CONNECTION_STRING']`. Format should match `sqlalchemy.url` found in [alembic.ini](./migrations/alembic.ini).
+For the application to have access to the database, DB_CONNECTION_STRING must be set on your system. You can set the variable for the current shell session with `export` keyword. Build your connection string using the format shown.
+
+```bash
+# set DB_CONNECTION_STRING
+$ export DB_CONNECTION_STRING=mysql+mysqldb://root:password@localhost:3306/example_db?ssl=true
+```
+
+All database tables correspond to a `*_entity.py` class in [entities directory](./entities). To add, remove, or modify a table you can create, delete, or update the corresponding `*_entity.py` file. Database versioning is managed with alembic. I only included 2 key migration commands for modifying the db schema. Please review alembic migration for an in depth explanation of what the commands do.
 ## Migration Commands
 
 ```bash
 # from repo root
-# set DB_CONNECTION_STRING
-$ export DB_CONNECTION_STRING=mysql+mysqldb://root:password@localhost:3306/example_db?ssl=true
 # create new migration
 $ python3 -m alembic.config -c src/app/persistence/migrations/alembic.ini revision --autogenerate -m "comment for revision"
 # update database
