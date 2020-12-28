@@ -1,5 +1,5 @@
 # Persistence
-Before following these notes - make sure you have access to an up and running [MySQL server](https://dev.mysql.com/). For the application to have access to the database in a development or production environment, DB_CONNECTION_STRING must be set on your system. You can set the variable for the current shell session with the `export` keyword. Build your connection string using the format shown.
+Before following these notes - make sure you have access to an up and running [MySQL server](https://dev.mysql.com/) (running the project using docker automatically starts mysql server via docker). For the application to have access to the database in a development or production environment, DB_CONNECTION_STRING must be set on your system. You can set the variable for the current shell session with the `export` keyword. Build your connection string using the format shown.
 
 ```bash
 # set DB_CONNECTION_STRING
