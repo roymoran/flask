@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  bookfinder:
+    container_name: flask-app
+    env_file: docker-compose.env
+    ports:
+      - 5000:80
+    restart: 'no'
+    build:
+      context: ../
+      dockerfile: ci/flask.Dockerfile
+    environment:
+      - FLASK_ENV=development
+      - APP_ENV=development
+    depends_on:
+      - db
+  db:
+    image: mysql:8.0.22
+    container_name: local-mysql
+    ports:
+      - 8001:3306
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+    - ./mysql:/var/lib/mysql
+    restart: 'no'
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: flask

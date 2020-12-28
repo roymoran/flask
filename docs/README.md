@@ -7,7 +7,7 @@ $ . venv/bin/activate
 # install packages
 $ pip install -r src/app/requirements.txt
 # Set environment variables for current session, DB_CONNECTION_STRING is optional
-$ export FLASK_APP=src/app/app.py; export FLASK_ENV=development; export FLASK_DEBUG=0; export APP_ENV=development; export DB_CONNECTION_STRING=mysql+mysqldb://root:password@localhost:3306/example_db?ssl=true;
+$ export FLASK_APP=src/app/app.py; export FLASK_ENV=development; export FLASK_DEBUG=0; export APP_ENV=development; export DB_CONNECTION_STRING=mysql+mysqldb://root:password@localhost:3306/flask?ssl=true;
 # Start flask app
 $ flask run
 ```
@@ -15,17 +15,16 @@ $ flask run
 ## Start Development Server in Docker Container
 
 ```bash
-# build docker image
-$ docker build -t flask-app -f ci/flask.Dockerfile .
-
-# run container (provide your environment variables)
-$ docker run -d --name flask-app -p 5000:80 -e APP_ENV="development" -e FLASK_ENV="development" -e DB_CONNECTION_STRING="mysql+mysqldb://username:password@host:3306/pub_workspaces?ssl=true" flask-app
-
+# run services
+$ docker-compose --file ci/docker-compose.yml up -d
+# run alembic migrations for initial db setup (creates all tables for migrations in versions directory, src>app>persistence>migrations>versions)
+$ docker exec -it flask-app python3 -m alembic.config -c src/app/persistence/migrations/alembic.ini upgrade head
 # Confirm running by visitng
-$ open http://localhost:5000
-
-# Stop and remove container
-$ docker rm -f flask-app
+$ open http://localhost:5000/info
+# rebuild images 
+$ docker-compose --file ci/docker-compose.yml build
+# stop services 
+$ docker-compose --file ci/docker-compose.yml down
 ```
 
 ## Managing MySQL Database Schema

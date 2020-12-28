@@ -12,7 +12,7 @@ Each database table corresponds to a `*_entity.py` class in [entities directory]
 
 For the --autogenerate flag to work, each individual entity must be imported into [env.py](./migrations/env.py). Otherwise an empty migration is generated and you must fill in the details.
 ## Migration Commands
-
+If application is running in docker container prepend commands with `docker exec -it flask-app`
 ```bash
 # from repo root
 # create new migration

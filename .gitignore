@@ -234,3 +234,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# mysql volume directory (used by docker mysql instance)
+ci/mysql/*
+!ci/mysql/.gitkeep
