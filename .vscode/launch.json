@@ -13,7 +13,7 @@
                 "FLASK_APP": "src/app/app.py",
                 "FLASK_ENV": "development",
                 "FLASK_DEBUG": "0",
-                "DB_CONNECTION_STRING": "mysql+mysqldb://root:password@localhost:3306/example_db?ssl=true",
+                "DB_CONNECTION_STRING": "mysql+mysqldb://root:password@localhost:3306/flask?ssl=true&charset=utf8mb4",
                 "APP_ENV": "development"
             },
             "args": [
@@ -29,7 +29,7 @@
             "request": "launch",
             "module": "alembic.config",
             "env": {
-                "DB_CONNECTION_STRING": "mysql+mysqldb://root:password@localhost:3306/example_db?ssl=true"
+                "DB_CONNECTION_STRING": "mysql+mysqldb://root:password@localhost:3306/flask?ssl=true&charset=utf8mb4"
             },
             "args": [
                 "--config",

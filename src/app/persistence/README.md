@@ -3,7 +3,7 @@ Before following these notes - make sure you have access to an up and running [M
 
 ```bash
 # set DB_CONNECTION_STRING
-$ export DB_CONNECTION_STRING=mysql+mysqldb://root:password@localhost:3306/example_db?ssl=true
+$ export DB_CONNECTION_STRING=mysql+mysqldb://root:password@localhost:3306/flask?ssl=true&charset=utf8mb4
 ```
 
 This flask app uses SQLAlchemy to manage access to the database tables and its records with the sqlalchemy orm. It also uses alembic to generate and version the database schema. The app is setup with an `example_entity.py` to display the usage of programmatically setting up a database table and its columns so the file should be deleted. More usage info can be found in the [object relational tutorial](https://docs.sqlalchemy.org/en/13/orm/tutorial.html) on SQLAlchemy documentation.

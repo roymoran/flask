@@ -20,5 +20,5 @@ def root():
 def info():
     """app info"""
     return {
-        'version': 'v0.0.1',
+        'version': 'v0.0.2',
     }

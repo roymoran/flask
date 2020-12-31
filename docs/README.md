@@ -7,7 +7,7 @@ $ . venv/bin/activate
 # install packages
 $ pip install -r src/app/requirements.txt
 # Set environment variables for current session, DB_CONNECTION_STRING is optional
-$ export FLASK_APP=src/app/app.py; export FLASK_ENV=development; export FLASK_DEBUG=0; export APP_ENV=development; export DB_CONNECTION_STRING=mysql+mysqldb://root:password@localhost:3306/flask?ssl=true;
+$ export FLASK_APP=src/app/app.py; export FLASK_ENV=development; export FLASK_DEBUG=0; export APP_ENV=development; export DB_CONNECTION_STRING=mysql+mysqldb://root:password@localhost:3306/flask?ssl=true&charset=utf8mb4;
 # Start flask app
 $ flask run
 ```
